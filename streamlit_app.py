@@ -17,7 +17,7 @@ def load_data(sheets_url):
 df = load_data(st.secrets["public_gsheets_url"])
 
 st.title(f"RSO Team Contract Viewer")
-pd.options.display.int_format = '{:,d}'.format
+
 team = sorted(list(df['RSO Team'].drop_duplicates()))
 curr_yr = df.columns[9]
 team_choice = st.selectbox('Filter on an RSO Team', team)
@@ -38,7 +38,7 @@ def ufa(cell_value):
         return highlight
     return default
 
-st.dataframe(df.style.applymap(ufa, subset=['2022','2023','2024','2025']), use_container_width = True)
+st.dataframe(df.style.format(thousands=',').applymap(ufa, subset=['2022','2023','2024','2025']), use_container_width = True)
 st.caption("You can drag the lower-right corner to re-size the table")
 
 @st.cache
