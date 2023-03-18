@@ -30,10 +30,10 @@ yr2_sum = "${:,d}".format(df.iloc[:,9].sum())
 yr3_sum = "${:,d}".format(df.iloc[:,10].sum())
 yr4_sum = "${:,d}".format(df.iloc[:,11].sum())
 cap = 224800000
-yr1_free = cap - yr1_sum
-yr2_free = cap - yr2_sum
-yr3_free = cap - yr3_sum
-yr4_free = cap - yr4_sum
+yr1_free = cap - int(yr1_sum)
+yr2_free = cap - int(yr2_sum)
+yr3_free = cap - int(yr3_sum)
+yr4_free = cap - int(yr4_sum)
 
 def ufa(cell_value):
     highlight = 'background-color: green;'
