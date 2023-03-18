@@ -22,7 +22,7 @@ team = list(df['RSO Team'].drop_duplicates())
 curr_yr = df.columns[9]
 team_choice = st.selectbox('Filter on an RSO Team', team)
 
-st.write("The table below shows all players under contract in ", curr_yr)
+st.write("The table below shows all players under contract in ", curr_yr, ". You can sort the table by clicking on a column header.")
 df = df[df['RSO Team'] == team_choice]
 df = df[df.iloc[:,9] > 0]
 yr1_sum = "${:,d}".format(df.iloc[:,8].sum())
@@ -32,7 +32,7 @@ yr4_sum = "${:,d}".format(df.iloc[:,11].sum())
 
 st.dataframe(df, use_container_width = True)
 st.caption("You can drag the lower-right corner to re-size the table")
-st.subheader("Below are the contracts totals by year")
+st.write("Below are the contracts totals by year")
 col1, col2, col3 = st.columns(3)
 col1.metric(df.columns[9], yr2_sum, delta = None)
 col2.metric(df.columns[10], yr3_sum, delta = None)
