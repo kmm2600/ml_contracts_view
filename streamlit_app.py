@@ -25,8 +25,10 @@ yr4_sum = df.iloc[:,11].sum()
 
 st.dataframe(df, use_container_width = True)
 
+st.write(yr1_sum)
+
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Year1", value = int(yr1_sum), delta = none)
-col2.metric("Year2", value = int(yr2_sum), delta = none)
-col3.metric("Year3", value = int(yr3_sum), delta = none)
-col4.metric("Year4", value = int(yr4_sum), delta = none)
+col1.metric("Year1", yr1_sum, delta = none)
+col2.metric("Year2", yr2_sum, delta = none)
+col3.metric("Year3", yr3_sum, delta = none)
+col4.metric("Year4", yr4_sum, delta = none)
