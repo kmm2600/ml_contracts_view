@@ -14,10 +14,10 @@ df = load_data(st.secrets["public_gsheets_url"])
 st.title(f"RSO Team Contract Viewer")
 
 team = list(df['RSO Team'].drop_duplicates())
-
+curr_yr = df.columns[9]
 team_choice = st.selectbox('Filter on an RSO Team', team)
 
-st.subheader("The table below shows all players under contract in ", df.columns[9])
+st.subheader("The table below shows all players under contract in ", curr_yr)
 df = df[df['RSO Team'] == team_choice]
 df = df[df.iloc[:,9] > 0]
 yr1_sum = "${:,d}".format(df.iloc[:,8].sum())
