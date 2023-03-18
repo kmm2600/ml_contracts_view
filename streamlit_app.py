@@ -47,7 +47,7 @@ st.download_button(
     mime='text/csv',
 )
 
-st.write("Below are the contracts totals by year")
+st.write("Below are the contract totals by year")
 col1, col2, col3 = st.columns(3)
 col1.metric(df.columns[9], yr2_sum, delta = None)
 col2.metric(df.columns[10], yr3_sum, delta = None)
