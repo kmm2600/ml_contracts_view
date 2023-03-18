@@ -32,8 +32,24 @@ yr4_sum = "${:,d}".format(df.iloc[:,11].sum())
 
 st.dataframe(df, use_container_width = True)
 st.caption("You can drag the lower-right corner to re-size the table")
+
+@st.cache
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df(my_large_df)
+
+st.download_button(
+    label="Download table as CSV",
+    data=csv,
+    file_name='large_df.csv',
+    mime='text/csv',
+)
+
 st.write("Below are the contracts totals by year")
 col1, col2, col3 = st.columns(3)
 col1.metric(df.columns[9], yr2_sum, delta = None)
 col2.metric(df.columns[10], yr3_sum, delta = None)
 col3.metric(df.columns[11], yr4_sum, delta = None)
+
