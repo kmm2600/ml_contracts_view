@@ -18,6 +18,7 @@ team = list(df['RSO Team'].drop_duplicates())
 team_choice = st.selectbox('Filter on an RSO Team', team)
 
 df = df[df['RSO Team'] == team_choice]
+df = df[df.iloc[:,9] > 0]
 yr1_sum = "${:,d}".format(df.iloc[:,8].sum())
 yr2_sum = "${:,d}".format(df.iloc[:,9].sum())
 yr3_sum = "${:,d}".format(df.iloc[:,10].sum())
