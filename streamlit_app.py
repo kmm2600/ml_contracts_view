@@ -17,7 +17,7 @@ def load_data(sheets_url):
 df = load_data(st.secrets["public_gsheets_url"])
 
 st.title(f"RSO Team Contract Viewer")
-
+pd.options.display.float_format = '{:,d}'.format
 team = sorted(list(df['RSO Team'].drop_duplicates()))
 curr_yr = df.columns[9]
 team_choice = st.selectbox('Filter on an RSO Team', team)
