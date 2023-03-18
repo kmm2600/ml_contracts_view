@@ -68,11 +68,11 @@ st.download_button(
     mime='text/csv',
 )
 
-st.write("Below are the contract totals by year and cap free space")
+st.write("Below are the contract totals by year and cap free space.")
 col1, col2, col3 = st.columns(3)
 col1.metric(df.columns[9], yr3_sumd, yr2_freed)
 col2.metric(df.columns[10], yr3_sumd, yr3_freed)
 col3.metric(df.columns[11], yr4_sumd, yr4_freed)
 
-st.caption("Cap free space is based on the 2023 224.8M salary cap")
+st.caption("Cap free space is based on the 2023 224.8M salary cap; green equals free space, red means over the cap")
 
