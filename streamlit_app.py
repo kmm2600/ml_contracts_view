@@ -18,5 +18,15 @@ team = list(df['RSO Team'].drop_duplicates())
 team_choice = st.selectbox('Filter on an RSO Team', team)
 
 df = df[df['RSO Team'] == team_choice]
+yr1_sum = df.iloc[:,8].sum()
+yr2_sum = df.iloc[:,9].sum()
+yr3_sum = df.iloc[:,10].sum()
+yr4_sum = df.iloc[:,11].sum()
 
 st.dataframe(df, use_container_width=True)
+
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Year1",value=yr1_sum,delta=none)
+col2.metric("Year2",value=yr2_sum,delta=none)
+col3.metric("Year3",value=yr3_sum,delta=none)
+col4.metric("Year4",value=yr4_sum,delta=none)
