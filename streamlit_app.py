@@ -70,7 +70,7 @@ st.download_button(
 
 st.write("Below are the contract totals by year and cap free space.")
 col1, col2, col3 = st.columns(3)
-col1.metric(df.columns[9], yr3_sumd, yr2_freed)
+col1.metric(df.columns[9], yr2_sumd, yr2_freed)
 col2.metric(df.columns[10], yr3_sumd, yr3_freed)
 col3.metric(df.columns[11], yr4_sumd, yr4_freed)
 
