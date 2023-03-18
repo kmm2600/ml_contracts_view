@@ -14,4 +14,4 @@ df = load_data(st.secrets["public_gsheets_url"])
 #for row in df.itertuples():
 #    st.write(f"{row.Player} has a :{row.Pos}:")
 
-st.dataframe(df)
+st.dataframe(df, use_container_width=True)
