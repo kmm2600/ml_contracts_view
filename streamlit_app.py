@@ -10,14 +10,14 @@ def load_data(sheets_url):
     csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
     return pd.read_csv(csv_url)
 
-df = load_data(st.secrets["public_gsheets_url"])
+data = load_data(st.secrets["public_gsheets_url"])
 
 # Print results.
 #for row in df.itertuples():
 #    st.write(f"{row.Player} has a :{row.Pos}:")
 
 #st.dataframe(df, use_container_width=True)
-gb = GridOptionsBuilder.from_dataframe(df)
+gb = GridOptionsBuilder.from_dataframe(data)
 gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
 gb.configure_side_bar() #Add a sidebar
 gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
@@ -36,6 +36,6 @@ grid_response = AgGrid(
     reload_data=True
 )
 
-df = grid_response['data']
+data = grid_response['data']
 selected = grid_response['selected_rows'] 
-df2 = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
+df = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
