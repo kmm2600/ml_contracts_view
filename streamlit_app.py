@@ -18,7 +18,7 @@ df = load_data(st.secrets["public_gsheets_url"])
 
 st.title(f"RSO Team Contract Viewer")
 
-team = list(df['RSO Team'].drop_duplicates())
+team = list.sort(df['RSO Team'].drop_duplicates())
 curr_yr = df.columns[9]
 team_choice = st.selectbox('Filter on an RSO Team', team)
 
