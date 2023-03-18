@@ -2,6 +2,11 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
+st.set_page_config(
+    page_title="RSO Contract Viewer",
+    layout="wide"
+)
+
 # Read in data from the Google Sheet.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
@@ -17,7 +22,7 @@ team = list(df['RSO Team'].drop_duplicates())
 curr_yr = df.columns[9]
 team_choice = st.selectbox('Filter on an RSO Team', team)
 
-st.subheader("The table below shows all players under contract in ", curr_yr)
+st.write("The table below shows all players under contract in ", curr_yr)
 df = df[df['RSO Team'] == team_choice]
 df = df[df.iloc[:,9] > 0]
 yr1_sum = "${:,d}".format(df.iloc[:,8].sum())
