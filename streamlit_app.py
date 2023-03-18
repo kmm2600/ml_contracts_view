@@ -25,15 +25,15 @@ team_choice = st.selectbox('Filter on an RSO Team', team)
 st.write("The table below shows all players under contract in ", curr_yr, ". You can sort the table by clicking on a column header.")
 df = df[df['RSO Team'] == team_choice]
 df = df[df.iloc[:,9] > 0]
-yr1_sum = "${:,d}".format(df.iloc[:,8].sum())
-yr2_sum = "${:,d}".format(df.iloc[:,9].sum())
-yr3_sum = "${:,d}".format(df.iloc[:,10].sum())
-yr4_sum = "${:,d}".format(df.iloc[:,11].sum())
+yr1_sum = df.iloc[:,8].sum()
+yr2_sum = df.iloc[:,9].sum()
+yr3_sum = df.iloc[:,10].sum()
+yr4_sum = df.iloc[:,11].sum()
 cap = 224800000
-yr1_free = cap - int(yr1_sum)
-yr2_free = cap - int(yr2_sum)
-yr3_free = cap - int(yr3_sum)
-yr4_free = cap - int(yr4_sum)
+yr1_free = cap - yr1_sum
+yr2_free = cap - yr2_sum
+yr3_free = cap - yr3_sum
+yr4_free = cap - yr4_sum
 
 def ufa(cell_value):
     highlight = 'background-color: green;'
@@ -62,7 +62,7 @@ st.download_button(
 
 st.write("Below are the contract totals by year and cap free space")
 col1, col2, col3 = st.columns(3)
-col1.metric(df.columns[9], yr2_sum, yr2_free)
+col1.metric(df.columns[9], "${:,d}".format(yr2_sum), yr2_free)
 col2.metric(df.columns[10], yr3_sum, yr3_free)
 col3.metric(df.columns[11], yr4_sum, yr4_free)
 
