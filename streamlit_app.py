@@ -34,6 +34,14 @@ yr1_free = cap - yr1_sum
 yr2_free = cap - yr2_sum
 yr3_free = cap - yr3_sum
 yr4_free = cap - yr4_sum
+yr1_sumd = "${:,d}".format(yr1_sum)
+yr2_sumd = "${:,d}".format(yr2_sum)
+yr3_sumd = "${:,d}".format(yr3_sum)
+yr4_sumd = "${:,d}".format(yr4_sum)
+yr1_freed = "${:,d}".format(yr1_free)
+yr2_freed = "${:,d}".format(yr2_free)
+yr3_freed = "${:,d}".format(yr3_free)
+yr4_freed = "${:,d}".format(yr4_free)
 
 def ufa(cell_value):
     highlight = 'background-color: green;'
@@ -62,9 +70,9 @@ st.download_button(
 
 st.write("Below are the contract totals by year and cap free space")
 col1, col2, col3 = st.columns(3)
-col1.metric(df.columns[9], "${:,d}".format(yr2_sum), yr2_free)
-col2.metric(df.columns[10], yr3_sum, yr3_free)
-col3.metric(df.columns[11], yr4_sum, yr4_free)
+col1.metric(df.columns[9], yr3_sumd, yr2_freed)
+col2.metric(df.columns[10], yr3_sumd, yr3_freed)
+col3.metric(df.columns[11], yr4_sumd, yr4_freed)
 
 st.caption("Cap free space is based on the 2023 224.8M salary cap")
 
