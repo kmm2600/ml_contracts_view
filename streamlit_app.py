@@ -30,7 +30,15 @@ yr2_sum = "${:,d}".format(df.iloc[:,9].sum())
 yr3_sum = "${:,d}".format(df.iloc[:,10].sum())
 yr4_sum = "${:,d}".format(df.iloc[:,11].sum())
 
-st.dataframe(df, use_container_width = True)
+def ufa(cell_value):
+    highlight = 'background-color: green;'
+    default = ''
+    
+    if cell_value == 0:
+        return highlight
+    return default
+
+st.dataframe(df.style.applymap(ufa, subset=['2022','2023','2024','2025']), use_container_width = True)
 st.caption("You can drag the lower-right corner to re-size the table")
 
 @st.cache
