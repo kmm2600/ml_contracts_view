@@ -43,7 +43,7 @@ csv = convert_df(df)
 st.download_button(
     label="Download table as CSV",
     data=csv,
-    file_name='large_df.csv',
+    file_name='my_contracts.csv',
     mime='text/csv',
 )
 
