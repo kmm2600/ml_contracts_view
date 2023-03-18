@@ -19,6 +19,4 @@ team_choice = st.selectbox('Filter on an RSO Team', team)
 
 df = df[df['RSO Team'] == team_choice]
 
-st.dataframe(df, use_container_width=True)
-
-st.table(df)
+st.dataframe(df, use_container_width="True")
