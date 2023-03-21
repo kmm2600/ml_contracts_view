@@ -52,7 +52,7 @@ def ufa(cell_value):
     return default
 
 st.dataframe(df.style.format(thousands=',').applymap(ufa, subset=['2022','2023','2024','2025']), use_container_width = True)
-st.caption("You can drag the lower-right corner to re-size the table")
+st.caption("You can drag the lower-right corner to re-size the table; green highlighted cells indicate the player is a free agent")
 
 @st.cache
 def convert_df(df2):
