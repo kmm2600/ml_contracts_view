@@ -38,10 +38,10 @@ yr1_sumd = "${:,d}".format(yr1_sum)
 yr2_sumd = "${:,d}".format(yr2_sum)
 yr3_sumd = "${:,d}".format(yr3_sum)
 yr4_sumd = "${:,d}".format(yr4_sum)
-yr1_freed = "${:,d}".format(yr1_free)
-yr2_freed = "${:,d}".format(yr2_free)
-yr3_freed = "${:,d}".format(yr3_free)
-yr4_freed = "${:,d}".format(yr4_free)
+yr1_freed = "{:,d}".format(yr1_free)
+yr2_freed = "{:,d}".format(yr2_free)
+yr3_freed = "{:,d}".format(yr3_free)
+yr4_freed = "{:,d}".format(yr4_free)
 
 def ufa(cell_value):
     highlight = 'background-color: green;'
